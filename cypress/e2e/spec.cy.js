@@ -6,6 +6,6 @@ describe('go to bacheca', () => {
 
 describe('go to joyfood', () => {
   it('passes', () => {
-    cy.visit('https://www.joyfood.it.it/')
+    cy.visit('https://www.joyfood.it/')
   })
 })

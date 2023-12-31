@@ -5,12 +5,12 @@ pipeline{
         string(name:'SPEC',defaultValue:"cypress/e2e",description:'')
         choice(name:'BROWSER',choices:['chrome','firefox','electron'],description:'')
     }
-    option{
+    options{
         ansiColor('xtrem')
     }
     stages{
         stage('Testing Cypress'){
-            step{
+            steps{
                 bat "npm i"
                 bat "npx cypress run --browser ${BROWSER} --spec ${SPEC} "
             }

@@ -6,7 +6,7 @@ pipeline{
         choice(name:'BROWSER',choices:['chrome','firefox','electron'],description:'')
     }
     options{
-        ansiColor('xtrem')
+        ansiColor('xterm')
     }
     stages{
         stage('Testing Cypress'){

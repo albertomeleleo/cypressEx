@@ -10,9 +10,15 @@ pipeline{
             steps{
                 sh 'npm i'
                 sh 'npx cypress run --browser ${BROWSER} --spec ${SPEC} '
+            }
+            
+        }
+         stage('Report Cypress'){
+            steps{
                 sh 'npx mochawesome-merge "cypress/results/*.json" > mochawesome.json'
                 sh 'npx marge mochawesome.json'
             }
+            
         }
     }
     post {

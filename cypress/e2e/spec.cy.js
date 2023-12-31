@@ -3,9 +3,3 @@ describe('go to bacheca', () => {
     cy.visit('https://www.bacheca.sisal.it/')
   })
 })
-
-describe('go to joyfood', () => {
-  it('passes', () => {
-    cy.visit('https://www.joyfood.it/')
-  })
-})

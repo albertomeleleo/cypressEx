@@ -14,19 +14,11 @@ pipeline{
                 }
             }
             
-        }
-         stage('Report Cypress'){
-            steps{ 
-                sh 'npx mochawesome-merge "cypress/results/*.json" > mochawesome.json'
-                sh 'npx marge mochawesome.json'
-                sh 'mv mochawesome-report/mochawesome.html mochawesome-report/index.html'
-            }
-            
-        }
+        } 
     }
     post {
         always{
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/results', reportFiles: 'mochawesome.html', reportName: 'HTML Report', reportTitles: ''])
             deleteDir()
       }
     }
